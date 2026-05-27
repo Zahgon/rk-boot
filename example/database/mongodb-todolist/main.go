@@ -2,15 +2,14 @@ package main
 
 import (
 	"context"
+	"time"
+
 	"github.com/gin-gonic/gin"
 	rkboot "github.com/rookie-ninja/rk-boot/v2"
 	rkmongo "github.com/rookie-ninja/rk-db/mongodb"
 	rkgin "github.com/rookie-ninja/rk-gin/v2/boot"
-	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
-	"net/http"
-	"time"
 )
 
 var (
@@ -65,11 +64,7 @@ type Todo struct {
 // @produce application/json
 // @Success 200
 // @Router / [get]
-func HelloWorld(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, gin.H{
-		"Message": "Hello World",
-	})
-}
+func HelloWorld(ctx *gin.Context) { _ = "STUB: not implemented"; return }
 
 // @Summary Get List Todo
 // @ID get-todo-list
@@ -79,22 +74,7 @@ func HelloWorld(ctx *gin.Context) {
 // @Success 200
 // @Failure 500
 // @Router /v1/todos [get]
-func ListTodos(ctx *gin.Context) {
-	t := []Todo{}
-	cursor, err := todoCollection.Find(context.Background(), bson.M{})
-
-	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, err)
-		return
-	}
-
-	if err = cursor.All(context.TODO(), &t); err != nil {
-		ctx.JSON(http.StatusInternalServerError, err)
-		return
-	}
-
-	ctx.JSON(http.StatusOK, t)
-}
+func ListTodos(ctx *gin.Context) { _ = "STUB: not implemented"; return }
 
 // @Summary Get Todo
 // @ID get-todo-by-id
@@ -105,24 +85,7 @@ func ListTodos(ctx *gin.Context) {
 // @Success 200
 // @Failure 500
 // @Router /v1/todo/{id} [get]
-func GetTodo(ctx *gin.Context) {
-	id, _ := primitive.ObjectIDFromHex(ctx.Param("id"))
-	res := todoCollection.FindOne(context.Background(), bson.M{"_id": id})
-
-	if res.Err() != nil {
-		ctx.AbortWithError(http.StatusInternalServerError, res.Err())
-		return
-	}
-
-	t := &Todo{}
-	err := res.Decode(t)
-	if err != nil {
-		ctx.AbortWithError(http.StatusInternalServerError, err)
-		return
-	}
-
-	ctx.JSON(http.StatusOK, t)
-}
+func GetTodo(ctx *gin.Context) { _ = "STUB: not implemented"; return }
 
 // @Summary Post Todo
 // @Tags Todos
@@ -131,27 +94,9 @@ func GetTodo(ctx *gin.Context) {
 // @Success 201
 // @Failure 500
 // @Router /v1/todo [post]
-func CreateTodo(ctx *gin.Context) {
-	t := &Todo{}
-	err := ctx.BindJSON(t)
-	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, err)
-		return
-	}
+func CreateTodo(ctx *gin.Context) { _ = "STUB: not implemented"; return }
 
-	// default value if not input
-	t.Completed = false
-	t.CreatedAt = time.Now()
-
-	_, err = todoCollection.InsertOne(context.Background(), t)
-
-	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, err)
-		return
-	}
-
-	ctx.String(http.StatusCreated, "created")
-}
+// default value if not input
 
 // @Summary Update Todo
 // @ID update-todo-by-id
@@ -162,35 +107,9 @@ func CreateTodo(ctx *gin.Context) {
 // @Success 200
 // @Failure 404
 // @Router /v1/todo/{id} [put]
-func UpdateTodo(ctx *gin.Context) {
-	id, _ := primitive.ObjectIDFromHex(ctx.Param("id"))
-	t := &Todo{}
+func UpdateTodo(ctx *gin.Context) { _ = "STUB: not implemented"; return }
 
-	err := ctx.BindJSON(t)
-	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, err)
-		return
-	}
-
-	// default value if not input
-	t.CreatedAt = time.Now()
-
-	res, err := todoCollection.UpdateOne(context.Background(), bson.M{"_id": id}, bson.M{
-		"$set": t,
-	})
-
-	if err != nil {
-		ctx.AbortWithError(http.StatusInternalServerError, err)
-		return
-	}
-
-	if res.MatchedCount < 1 {
-		ctx.JSON(http.StatusNotFound, "todo id not found")
-		return
-	}
-
-	ctx.String(http.StatusOK, "success")
-}
+// default value if not input
 
 // @Summary Delete Todo
 // @ID delete-todo-by-id
@@ -201,21 +120,4 @@ func UpdateTodo(ctx *gin.Context) {
 // @Success 200
 // @Failure 404
 // @Router /v1/todo/{id} [delete]
-func DeleteTodo(ctx *gin.Context) {
-	id, _ := primitive.ObjectIDFromHex(ctx.Param("id"))
-	res, err := todoCollection.DeleteOne(context.Background(), bson.M{
-		"_id": id,
-	})
-
-	if err != nil {
-		ctx.AbortWithError(http.StatusInternalServerError, err)
-		return
-	}
-
-	if res.DeletedCount < 1 {
-		ctx.JSON(http.StatusNotFound, "todo id not found")
-		return
-	}
-
-	ctx.String(http.StatusOK, "success")
-}
+func DeleteTodo(ctx *gin.Context) { _ = "STUB: not implemented"; return }

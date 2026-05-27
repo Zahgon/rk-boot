@@ -7,11 +7,9 @@ package main
 import (
 	"context"
 	_ "embed"
-	"fmt"
+
 	"github.com/labstack/echo/v4"
-	"github.com/rookie-ninja/rk-boot/v2"
-	"github.com/rookie-ninja/rk-echo/boot"
-	"net/http"
+	rkboot "github.com/rookie-ninja/rk-boot/v2"
 )
 
 // @title Swagger Example API
@@ -50,11 +48,7 @@ func main() {
 // @Param name query string true "Input name"
 // @Success 200 {object} GreeterResponse
 // @Router /v1/greeter [get]
-func Greeter(ctx echo.Context) error {
-	return ctx.JSON(http.StatusOK, &GreeterResponse{
-		Message: fmt.Sprintf("Hello %s!", ctx.QueryParam("name")),
-	})
-}
+func Greeter(ctx echo.Context) error { _ = "STUB: not implemented"; return nil }
 
 type GreeterResponse struct {
 	Message string

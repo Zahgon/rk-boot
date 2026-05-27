@@ -7,16 +7,11 @@ package main
 
 import (
 	"context"
-	"encoding/json"
-	"fmt"
+
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v4"
-	"github.com/rookie-ninja/rk-boot/v2"
-	"github.com/rookie-ninja/rk-entry/v2/entry"
-	"github.com/rookie-ninja/rk-gin/v2/boot"
+	rkboot "github.com/rookie-ninja/rk-boot/v2"
 	"github.com/rookie-ninja/rk-gin/v2/middleware/context"
-	"net/http"
-	"time"
 )
 
 // @title Swagger Example API
@@ -65,30 +60,14 @@ type CustomClaims struct {
 // @produce application/json
 // @Router /v1/login [get]
 func Login(ctx *gin.Context) {
+	_ = "STUB: not implemented"
 	// Simply generate JWT token from user provided name for demo
-	userName := ctx.Query("name")
-
-	now := time.Now()
-	claims := CustomClaims{
-		UserName: userName,
-		RegisteredClaims: jwt.RegisteredClaims{
-			ExpiresAt: jwt.NewNumericDate(now.Add(30 * time.Minute)),
-			IssuedAt:  jwt.NewNumericDate(now),
-			NotBefore: jwt.NewNumericDate(now),
-			Issuer:    "rk-boot",
-		},
-	}
-
-	// By default, JWT middleware will create a new SignerEntry with the same name of Gin Entry
-	// default signer entry will use symmetric algorithm (HS256) with token of (rk jwt key)
-	// refer rkmidjwt.NewOptionSet
-	signerEntry := rkentry.GlobalAppCtx.GetSignerJwtEntry("greeter")
-
-	res, _ := signerEntry.SignJwt(claims)
-	ctx.JSON(http.StatusOK, map[string]string{
-		"JwtToken": res,
-	})
+	return
 }
+
+// By default, JWT middleware will create a new SignerEntry with the same name of Gin Entry
+// default signer entry will use symmetric algorithm (HS256) with token of (rk jwt key)
+// refer rkmidjwt.NewOptionSet
 
 // WhoAmI handler
 // @Summary WhoAmI
@@ -99,15 +78,9 @@ func Login(ctx *gin.Context) {
 // @produce application/json
 // @Router /v1/whoami [get]
 func WhoAmI(ctx *gin.Context) {
+	_ = "STUB: not implemented"
 	// 1: get JWT token from context which injected into context by middleware
-	token := rkginctx.GetJwtToken(ctx)
-
-	// convert claim to custom claim
-	claims := &CustomClaims{}
-	bytes, _ := json.Marshal(token.Claims)
-	json.Unmarshal(bytes, claims)
-
-	ctx.JSON(http.StatusOK, map[string]string{
-		"Message": fmt.Sprintf("Your name is %s", claims.UserName),
-	})
+	return
 }
+
+// convert claim to custom claim

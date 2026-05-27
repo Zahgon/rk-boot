@@ -21,10 +21,10 @@
 package code
 
 import (
+	sync "sync"
+
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	reflect "reflect"
-	sync "sync"
 )
 
 const (
@@ -35,7 +35,6 @@ const (
 )
 
 // The canonical error codes for Google APIs.
-//
 //
 // Sometimes multiple error codes may apply.  Services should return
 // the most specific error code that applies.  For example, prefer
@@ -224,32 +223,27 @@ var (
 	}
 )
 
-func (x Code) Enum() *Code {
-	p := new(Code)
-	*p = x
-	return p
-}
+func (x Code) Enum() *Code { _ = "STUB: not implemented"; return nil }
 
-func (x Code) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
+func (x Code) String() string { _ = "STUB: not implemented"; return "" }
 
 func (Code) Descriptor() protoreflect.EnumDescriptor {
-	return file_google_rpc_code_proto_enumTypes[0].Descriptor()
+	_ = "STUB: not implemented"
+	return *new(protoreflect.EnumDescriptor)
 }
 
 func (Code) Type() protoreflect.EnumType {
-	return &file_google_rpc_code_proto_enumTypes[0]
+	_ = "STUB: not implemented"
+	return *new(protoreflect.EnumType)
 }
 
 func (x Code) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
+	_ = "STUB: not implemented"
+	return *new(protoreflect.EnumNumber)
 }
 
 // Deprecated: Use Code.Descriptor instead.
-func (Code) EnumDescriptor() ([]byte, []int) {
-	return file_google_rpc_code_proto_rawDescGZIP(), []int{0}
-}
+func (Code) EnumDescriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
 
 var File_google_rpc_code_proto protoreflect.FileDescriptor
 
@@ -289,12 +283,7 @@ var (
 	file_google_rpc_code_proto_rawDescData = file_google_rpc_code_proto_rawDesc
 )
 
-func file_google_rpc_code_proto_rawDescGZIP() []byte {
-	file_google_rpc_code_proto_rawDescOnce.Do(func() {
-		file_google_rpc_code_proto_rawDescData = protoimpl.X.CompressGZIP(file_google_rpc_code_proto_rawDescData)
-	})
-	return file_google_rpc_code_proto_rawDescData
-}
+func file_google_rpc_code_proto_rawDescGZIP() []byte { _ = "STUB: not implemented"; return nil }
 
 var file_google_rpc_code_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_google_rpc_code_proto_goTypes = []interface{}{
@@ -308,27 +297,5 @@ var file_google_rpc_code_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_google_rpc_code_proto_init() }
-func file_google_rpc_code_proto_init() {
-	if File_google_rpc_code_proto != nil {
-		return
-	}
-	type x struct{}
-	out := protoimpl.TypeBuilder{
-		File: protoimpl.DescBuilder{
-			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_google_rpc_code_proto_rawDesc,
-			NumEnums:      1,
-			NumMessages:   0,
-			NumExtensions: 0,
-			NumServices:   0,
-		},
-		GoTypes:           file_google_rpc_code_proto_goTypes,
-		DependencyIndexes: file_google_rpc_code_proto_depIdxs,
-		EnumInfos:         file_google_rpc_code_proto_enumTypes,
-	}.Build()
-	File_google_rpc_code_proto = out.File
-	file_google_rpc_code_proto_rawDesc = nil
-	file_google_rpc_code_proto_goTypes = nil
-	file_google_rpc_code_proto_depIdxs = nil
-}
+func init()                            { file_google_rpc_code_proto_init() }
+func file_google_rpc_code_proto_init() { _ = "STUB: not implemented"; return }

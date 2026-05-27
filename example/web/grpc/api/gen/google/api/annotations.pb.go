@@ -24,7 +24,6 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	descriptorpb "google.golang.org/protobuf/types/descriptorpb"
-	reflect "reflect"
 )
 
 const (
@@ -91,28 +90,5 @@ var file_google_api_annotations_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_google_api_annotations_proto_init() }
-func file_google_api_annotations_proto_init() {
-	if File_google_api_annotations_proto != nil {
-		return
-	}
-	file_google_api_http_proto_init()
-	type x struct{}
-	out := protoimpl.TypeBuilder{
-		File: protoimpl.DescBuilder{
-			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_google_api_annotations_proto_rawDesc,
-			NumEnums:      0,
-			NumMessages:   0,
-			NumExtensions: 1,
-			NumServices:   0,
-		},
-		GoTypes:           file_google_api_annotations_proto_goTypes,
-		DependencyIndexes: file_google_api_annotations_proto_depIdxs,
-		ExtensionInfos:    file_google_api_annotations_proto_extTypes,
-	}.Build()
-	File_google_api_annotations_proto = out.File
-	file_google_api_annotations_proto_rawDesc = nil
-	file_google_api_annotations_proto_goTypes = nil
-	file_google_api_annotations_proto_depIdxs = nil
-}
+func init()                                   { file_google_api_annotations_proto_init() }
+func file_google_api_annotations_proto_init() { _ = "STUB: not implemented"; return }

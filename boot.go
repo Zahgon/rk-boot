@@ -9,38 +9,22 @@ package rkboot
 import (
 	"context"
 	"embed"
-	"fmt"
-	"os"
-	"path/filepath"
-	"runtime/debug"
 
 	rkentry "github.com/rookie-ninja/rk-entry/v2/entry"
-	rkmid "github.com/rookie-ninja/rk-entry/v2/middleware"
-	"go.uber.org/zap"
 )
 
 type hookFuncM map[string]map[string]func(ctx context.Context)
 
-func newHookFuncM() hookFuncM {
-	return map[string]map[string]func(ctx context.Context){}
-}
+func newHookFuncM() hookFuncM { _ = "STUB: not implemented"; return *new(hookFuncM) }
 
 func (m hookFuncM) addFunc(entryType, entryName string, f func(ctx context.Context)) {
-	if _, ok := m[entryType]; !ok {
-		m[entryType] = make(map[string]func(ctx context.Context))
-	}
-
-	m[entryType][entryName] = f
+	_ = "STUB: not implemented"
+	return
 }
 
 func (m hookFuncM) getFunc(entryType, entryName string) func(ctx context.Context) {
-	if inner, ok := m[entryType]; ok {
-		if f, ok := inner[entryName]; ok {
-			return f
-		}
-	}
-
-	return func(ctx context.Context) {}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Boot is a structure for bootstrapping rk style application
@@ -61,228 +45,70 @@ type BootOption func(*Boot)
 
 // WithBootConfigPath provide boot config yaml file.
 func WithBootConfigPath(filePath string, fs *embed.FS) BootOption {
-	return func(boot *Boot) {
-		boot.bootConfigPath = filePath
-		boot.embedFS = fs
-	}
+	_ = "STUB: not implemented"
+	return *new(BootOption)
 }
 
 // WithBootConfigRaw provide boot config as string.
-func WithBootConfigRaw(raw []byte) BootOption {
-	return func(boot *Boot) {
-		if len(raw) > 0 {
-			boot.bootConfigRaw = raw
-		}
-	}
-}
+func WithBootConfigRaw(raw []byte) BootOption { _ = "STUB: not implemented"; return *new(BootOption) }
 
 // NewBoot create a bootstrapper.
-func NewBoot(opts ...BootOption) *Boot {
-	defer syncLog("N/A")
+func NewBoot(opts ...BootOption) *Boot { _ = "STUB: not implemented"; return nil }
 
-	boot := &Boot{
-		EventId:       rkmid.GenerateRequestId(nil),
-		beforeHookF:   newHookFuncM(),
-		afterHookF:    newHookFuncM(),
-		pluginEntries: map[string]map[string]rkentry.Entry{},
-		userEntries:   map[string]map[string]rkentry.Entry{},
-		webEntries:    map[string]map[string]rkentry.Entry{},
-	}
-
-	for i := range opts {
-		opts[i](boot)
-	}
-
-	raw := boot.readYAML()
-
-	// Register entries need to pre-build.
-	rkentry.BootstrapBuiltInEntryFromYAML(raw)
-
-	for _, f := range rkentry.ListPluginEntryRegFunc() {
-		for _, v := range f(raw) {
-			if boot.pluginEntries[v.GetType()] == nil {
-				boot.pluginEntries[v.GetType()] = make(map[string]rkentry.Entry)
-			}
-			boot.pluginEntries[v.GetType()][v.GetName()] = v
-		}
-	}
-
-	for _, f := range rkentry.ListUserEntryRegFunc() {
-		for _, v := range f(raw) {
-			if boot.userEntries[v.GetType()] == nil {
-				boot.userEntries[v.GetType()] = make(map[string]rkentry.Entry)
-			}
-			boot.userEntries[v.GetType()][v.GetName()] = v
-		}
-	}
-
-	for _, f := range rkentry.ListWebFrameEntryRegFunc() {
-		for _, v := range f(raw) {
-			if boot.webEntries[v.GetType()] == nil {
-				boot.webEntries[v.GetType()] = make(map[string]rkentry.Entry)
-			}
-			boot.webEntries[v.GetType()][v.GetName()] = v
-		}
-	}
-
-	return boot
-}
+// Register entries need to pre-build.
 
 // AddHookFuncBeforeBootstrap run functions before certain entry Bootstrap()
 func (boot *Boot) AddHookFuncBeforeBootstrap(entryType, entryName string, f func(ctx context.Context)) {
-	if f == nil {
-		return
-	}
-
-	boot.beforeHookF.addFunc(entryType, entryName, f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddHookFuncAfterBootstrap run functions before certain entry Bootstrap()
 func (boot *Boot) AddHookFuncAfterBootstrap(entryType, entryName string, f func(ctx context.Context)) {
-	if f == nil {
-		return
-	}
-
-	boot.afterHookF.addFunc(entryType, entryName, f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Bootstrap entries as sequence of plugin, user defined and web framework
-func (boot *Boot) Bootstrap(ctx context.Context) {
-	defer syncLog(boot.EventId)
-
-	ctx = context.WithValue(ctx, "eventId", boot.EventId)
-
-	for entryType, byEntryName := range boot.pluginEntries {
-		for entryName, e := range byEntryName {
-			boot.beforeHookF.getFunc(entryType, entryName)(ctx)
-			e.Bootstrap(ctx)
-			boot.afterHookF.getFunc(entryType, entryName)(ctx)
-		}
-	}
-
-	for entryType, byEntryName := range boot.userEntries {
-		for entryName, e := range byEntryName {
-			boot.beforeHookF.getFunc(entryType, entryName)(ctx)
-			e.Bootstrap(ctx)
-			boot.afterHookF.getFunc(entryType, entryName)(ctx)
-		}
-	}
-
-	for entryType, byEntryName := range boot.webEntries {
-		for entryName, e := range byEntryName {
-			boot.beforeHookF.getFunc(entryType, entryName)(ctx)
-			e.Bootstrap(ctx)
-			boot.afterHookF.getFunc(entryType, entryName)(ctx)
-		}
-	}
-}
+func (boot *Boot) Bootstrap(ctx context.Context) { _ = "STUB: not implemented"; return }
 
 // WaitForShutdownSig wait for shutdown signal.
 // 1: Call shutdown hook function added by user.
 // 2: Call interrupt function of entries in rkentry.GlobalAppCtx.
-func (boot *Boot) WaitForShutdownSig(ctx context.Context) {
-	rkentry.GlobalAppCtx.WaitForShutdownSig()
-
-	boot.Shutdown(ctx)
-}
+func (boot *Boot) WaitForShutdownSig(ctx context.Context) { _ = "STUB: not implemented"; return }
 
 // Shutdown shutdown boot. for non-web application
 // 1: Call shutdown hook function added by user.
 // 2: Call interrupt function of entries in rkentry.GlobalAppCtx.
 func (boot *Boot) Shutdown(ctx context.Context) {
+	_ = "STUB: not implemented"
 	// Call shutdown hook function
-	for _, f := range rkentry.GlobalAppCtx.ListShutdownHooks() {
-		f()
-	}
-
-	// Call interrupt
-	boot.interrupt(ctx)
+	return
 }
+
+// Call interrupt
 
 // AddShutdownHookFunc add shutdown hook function
 func (boot *Boot) AddShutdownHookFunc(name string, f rkentry.ShutdownHook) {
-	rkentry.GlobalAppCtx.AddShutdownHook(name, f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Interrupt entries as sequence of plugin, user defined and web framework
-func (boot *Boot) interrupt(ctx context.Context) {
-	defer syncLog(boot.EventId)
+func (boot *Boot) interrupt(ctx context.Context) { _ = "STUB: not implemented"; return }
 
-	ctx = context.WithValue(ctx, "eventId", boot.EventId)
-
-	// Interrupt external entries
-	for _, m := range rkentry.GlobalAppCtx.ListEntries() {
-		for _, e := range m {
-			e.Interrupt(ctx)
-		}
-	}
-}
+// Interrupt external entries
 
 // readYAML read YAML file
 func (boot *Boot) readYAML() []byte {
+	_ = "STUB: not implemented"
 	// case 1: if user provide raw then, continue
-	if len(boot.bootConfigRaw) > 0 {
-		return boot.bootConfigRaw
-	}
-
-	// case 2: if embed.FS is not nil, then try to read from it
-	if boot.embedFS != nil {
-		res, err := boot.embedFS.ReadFile(boot.bootConfigPath)
-		if err != nil {
-			rkentry.ShutdownWithError(err)
-		}
-		return res
-	}
-
-	// case 3: try to read from local, if bootConfigPath is empty, then try to read from default boot.yaml
-	if len(boot.bootConfigPath) < 1 {
-		boot.bootConfigPath = "boot.yaml"
-	}
-	if !filepath.IsAbs(boot.bootConfigPath) {
-		wd, _ := os.Getwd()
-		boot.bootConfigPath = filepath.Join(wd, boot.bootConfigPath)
-	}
-
-	res, err := os.ReadFile(boot.bootConfigPath)
-	if err != nil {
-		rkentry.ShutdownWithError(err)
-	}
-	return res
+	return nil
 }
+
+// case 2: if embed.FS is not nil, then try to read from it
+
+// case 3: try to read from local, if bootConfigPath is empty, then try to read from default boot.yaml
 
 // sync logs
-func syncLog(eventId string) {
-	if r := recover(); r != nil {
-		stackTrace := fmt.Sprintf("Panic occured, shutting down... \n%s", string(debug.Stack()))
-		logEntries := rkentry.GlobalAppCtx.ListEntriesByType(rkentry.LoggerEntryType)
-		for _, v := range logEntries {
-			logger, ok := v.(*rkentry.LoggerEntry)
-			if !ok {
-				continue
-			}
-
-			if logger != nil {
-				logger.Error(stackTrace,
-					zap.String("eventId", eventId),
-					zap.Any("RootCause", r))
-			}
-			logger.Sync()
-		}
-
-		if len(logEntries) == 0 {
-			fmt.Printf(stackTrace)
-			fmt.Printf("RootCause: %s", r)
-		}
-
-		for _, v := range rkentry.GlobalAppCtx.ListEntriesByType(rkentry.EventEntryType) {
-			event, ok := v.(*rkentry.EventEntry)
-			if !ok {
-				continue
-			}
-
-			event.Sync()
-		}
-
-		os.Exit(1)
-	}
-}
+func syncLog(eventId string) { _ = "STUB: not implemented"; return }

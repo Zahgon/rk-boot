@@ -21,11 +21,11 @@
 package errdetails
 
 import (
+	sync "sync"
+
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	durationpb "google.golang.org/protobuf/types/known/durationpb"
-	reflect "reflect"
-	sync "sync"
 )
 
 const (
@@ -57,44 +57,21 @@ type RetryInfo struct {
 	RetryDelay *durationpb.Duration `protobuf:"bytes,1,opt,name=retry_delay,json=retryDelay,proto3" json:"retry_delay,omitempty"`
 }
 
-func (x *RetryInfo) Reset() {
-	*x = RetryInfo{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_google_rpc_error_details_proto_msgTypes[0]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
+func (x *RetryInfo) Reset() { _ = "STUB: not implemented"; return }
 
-func (x *RetryInfo) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
+func (x *RetryInfo) String() string { _ = "STUB: not implemented"; return "" }
 
-func (*RetryInfo) ProtoMessage() {}
+func (*RetryInfo) ProtoMessage() { _ = "STUB: not implemented"; return }
 
 func (x *RetryInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_google_rpc_error_details_proto_msgTypes[0]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
+	_ = "STUB: not implemented"
+	return *new(protoreflect.Message)
 }
 
 // Deprecated: Use RetryInfo.ProtoReflect.Descriptor instead.
-func (*RetryInfo) Descriptor() ([]byte, []int) {
-	return file_google_rpc_error_details_proto_rawDescGZIP(), []int{0}
-}
+func (*RetryInfo) Descriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
 
-func (x *RetryInfo) GetRetryDelay() *durationpb.Duration {
-	if x != nil {
-		return x.RetryDelay
-	}
-	return nil
-}
+func (x *RetryInfo) GetRetryDelay() *durationpb.Duration { _ = "STUB: not implemented"; return nil }
 
 // Describes additional debugging info.
 type DebugInfo struct {
@@ -108,51 +85,23 @@ type DebugInfo struct {
 	Detail string `protobuf:"bytes,2,opt,name=detail,proto3" json:"detail,omitempty"`
 }
 
-func (x *DebugInfo) Reset() {
-	*x = DebugInfo{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_google_rpc_error_details_proto_msgTypes[1]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
+func (x *DebugInfo) Reset() { _ = "STUB: not implemented"; return }
 
-func (x *DebugInfo) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
+func (x *DebugInfo) String() string { _ = "STUB: not implemented"; return "" }
 
-func (*DebugInfo) ProtoMessage() {}
+func (*DebugInfo) ProtoMessage() { _ = "STUB: not implemented"; return }
 
 func (x *DebugInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_google_rpc_error_details_proto_msgTypes[1]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
+	_ = "STUB: not implemented"
+	return *new(protoreflect.Message)
 }
 
 // Deprecated: Use DebugInfo.ProtoReflect.Descriptor instead.
-func (*DebugInfo) Descriptor() ([]byte, []int) {
-	return file_google_rpc_error_details_proto_rawDescGZIP(), []int{1}
-}
+func (*DebugInfo) Descriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
 
-func (x *DebugInfo) GetStackEntries() []string {
-	if x != nil {
-		return x.StackEntries
-	}
-	return nil
-}
+func (x *DebugInfo) GetStackEntries() []string { _ = "STUB: not implemented"; return nil }
 
-func (x *DebugInfo) GetDetail() string {
-	if x != nil {
-		return x.Detail
-	}
-	return ""
-}
+func (x *DebugInfo) GetDetail() string { _ = "STUB: not implemented"; return "" }
 
 // Describes how a quota check failed.
 //
@@ -174,42 +123,22 @@ type QuotaFailure struct {
 	Violations []*QuotaFailure_Violation `protobuf:"bytes,1,rep,name=violations,proto3" json:"violations,omitempty"`
 }
 
-func (x *QuotaFailure) Reset() {
-	*x = QuotaFailure{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_google_rpc_error_details_proto_msgTypes[2]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
+func (x *QuotaFailure) Reset() { _ = "STUB: not implemented"; return }
 
-func (x *QuotaFailure) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
+func (x *QuotaFailure) String() string { _ = "STUB: not implemented"; return "" }
 
-func (*QuotaFailure) ProtoMessage() {}
+func (*QuotaFailure) ProtoMessage() { _ = "STUB: not implemented"; return }
 
 func (x *QuotaFailure) ProtoReflect() protoreflect.Message {
-	mi := &file_google_rpc_error_details_proto_msgTypes[2]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
+	_ = "STUB: not implemented"
+	return *new(protoreflect.Message)
 }
 
 // Deprecated: Use QuotaFailure.ProtoReflect.Descriptor instead.
-func (*QuotaFailure) Descriptor() ([]byte, []int) {
-	return file_google_rpc_error_details_proto_rawDescGZIP(), []int{2}
-}
+func (*QuotaFailure) Descriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
 
 func (x *QuotaFailure) GetViolations() []*QuotaFailure_Violation {
-	if x != nil {
-		return x.Violations
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
@@ -227,42 +156,25 @@ type PreconditionFailure struct {
 	Violations []*PreconditionFailure_Violation `protobuf:"bytes,1,rep,name=violations,proto3" json:"violations,omitempty"`
 }
 
-func (x *PreconditionFailure) Reset() {
-	*x = PreconditionFailure{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_google_rpc_error_details_proto_msgTypes[3]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
+func (x *PreconditionFailure) Reset() { _ = "STUB: not implemented"; return }
 
-func (x *PreconditionFailure) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
+func (x *PreconditionFailure) String() string { _ = "STUB: not implemented"; return "" }
 
-func (*PreconditionFailure) ProtoMessage() {}
+func (*PreconditionFailure) ProtoMessage() { _ = "STUB: not implemented"; return }
 
 func (x *PreconditionFailure) ProtoReflect() protoreflect.Message {
-	mi := &file_google_rpc_error_details_proto_msgTypes[3]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
+	_ = "STUB: not implemented"
+	return *new(protoreflect.Message)
 }
 
 // Deprecated: Use PreconditionFailure.ProtoReflect.Descriptor instead.
 func (*PreconditionFailure) Descriptor() ([]byte, []int) {
-	return file_google_rpc_error_details_proto_rawDescGZIP(), []int{3}
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 func (x *PreconditionFailure) GetViolations() []*PreconditionFailure_Violation {
-	if x != nil {
-		return x.Violations
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
@@ -277,42 +189,22 @@ type BadRequest struct {
 	FieldViolations []*BadRequest_FieldViolation `protobuf:"bytes,1,rep,name=field_violations,json=fieldViolations,proto3" json:"field_violations,omitempty"`
 }
 
-func (x *BadRequest) Reset() {
-	*x = BadRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_google_rpc_error_details_proto_msgTypes[4]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
+func (x *BadRequest) Reset() { _ = "STUB: not implemented"; return }
 
-func (x *BadRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
+func (x *BadRequest) String() string { _ = "STUB: not implemented"; return "" }
 
-func (*BadRequest) ProtoMessage() {}
+func (*BadRequest) ProtoMessage() { _ = "STUB: not implemented"; return }
 
 func (x *BadRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_google_rpc_error_details_proto_msgTypes[4]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
+	_ = "STUB: not implemented"
+	return *new(protoreflect.Message)
 }
 
 // Deprecated: Use BadRequest.ProtoReflect.Descriptor instead.
-func (*BadRequest) Descriptor() ([]byte, []int) {
-	return file_google_rpc_error_details_proto_rawDescGZIP(), []int{4}
-}
+func (*BadRequest) Descriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
 
 func (x *BadRequest) GetFieldViolations() []*BadRequest_FieldViolation {
-	if x != nil {
-		return x.FieldViolations
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
@@ -331,51 +223,23 @@ type RequestInfo struct {
 	ServingData string `protobuf:"bytes,2,opt,name=serving_data,json=servingData,proto3" json:"serving_data,omitempty"`
 }
 
-func (x *RequestInfo) Reset() {
-	*x = RequestInfo{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_google_rpc_error_details_proto_msgTypes[5]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
+func (x *RequestInfo) Reset() { _ = "STUB: not implemented"; return }
 
-func (x *RequestInfo) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
+func (x *RequestInfo) String() string { _ = "STUB: not implemented"; return "" }
 
-func (*RequestInfo) ProtoMessage() {}
+func (*RequestInfo) ProtoMessage() { _ = "STUB: not implemented"; return }
 
 func (x *RequestInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_google_rpc_error_details_proto_msgTypes[5]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
+	_ = "STUB: not implemented"
+	return *new(protoreflect.Message)
 }
 
 // Deprecated: Use RequestInfo.ProtoReflect.Descriptor instead.
-func (*RequestInfo) Descriptor() ([]byte, []int) {
-	return file_google_rpc_error_details_proto_rawDescGZIP(), []int{5}
-}
+func (*RequestInfo) Descriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
 
-func (x *RequestInfo) GetRequestId() string {
-	if x != nil {
-		return x.RequestId
-	}
-	return ""
-}
+func (x *RequestInfo) GetRequestId() string { _ = "STUB: not implemented"; return "" }
 
-func (x *RequestInfo) GetServingData() string {
-	if x != nil {
-		return x.ServingData
-	}
-	return ""
-}
+func (x *RequestInfo) GetServingData() string { _ = "STUB: not implemented"; return "" }
 
 // Describes the resource that is being accessed.
 type ResourceInfo struct {
@@ -401,65 +265,27 @@ type ResourceInfo struct {
 	Description string `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
 }
 
-func (x *ResourceInfo) Reset() {
-	*x = ResourceInfo{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_google_rpc_error_details_proto_msgTypes[6]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
+func (x *ResourceInfo) Reset() { _ = "STUB: not implemented"; return }
 
-func (x *ResourceInfo) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
+func (x *ResourceInfo) String() string { _ = "STUB: not implemented"; return "" }
 
-func (*ResourceInfo) ProtoMessage() {}
+func (*ResourceInfo) ProtoMessage() { _ = "STUB: not implemented"; return }
 
 func (x *ResourceInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_google_rpc_error_details_proto_msgTypes[6]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
+	_ = "STUB: not implemented"
+	return *new(protoreflect.Message)
 }
 
 // Deprecated: Use ResourceInfo.ProtoReflect.Descriptor instead.
-func (*ResourceInfo) Descriptor() ([]byte, []int) {
-	return file_google_rpc_error_details_proto_rawDescGZIP(), []int{6}
-}
+func (*ResourceInfo) Descriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
 
-func (x *ResourceInfo) GetResourceType() string {
-	if x != nil {
-		return x.ResourceType
-	}
-	return ""
-}
+func (x *ResourceInfo) GetResourceType() string { _ = "STUB: not implemented"; return "" }
 
-func (x *ResourceInfo) GetResourceName() string {
-	if x != nil {
-		return x.ResourceName
-	}
-	return ""
-}
+func (x *ResourceInfo) GetResourceName() string { _ = "STUB: not implemented"; return "" }
 
-func (x *ResourceInfo) GetOwner() string {
-	if x != nil {
-		return x.Owner
-	}
-	return ""
-}
+func (x *ResourceInfo) GetOwner() string { _ = "STUB: not implemented"; return "" }
 
-func (x *ResourceInfo) GetDescription() string {
-	if x != nil {
-		return x.Description
-	}
-	return ""
-}
+func (x *ResourceInfo) GetDescription() string { _ = "STUB: not implemented"; return "" }
 
 // Provides links to documentation or for performing an out of band action.
 //
@@ -475,44 +301,21 @@ type Help struct {
 	Links []*Help_Link `protobuf:"bytes,1,rep,name=links,proto3" json:"links,omitempty"`
 }
 
-func (x *Help) Reset() {
-	*x = Help{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_google_rpc_error_details_proto_msgTypes[7]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
+func (x *Help) Reset() { _ = "STUB: not implemented"; return }
 
-func (x *Help) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
+func (x *Help) String() string { _ = "STUB: not implemented"; return "" }
 
-func (*Help) ProtoMessage() {}
+func (*Help) ProtoMessage() { _ = "STUB: not implemented"; return }
 
 func (x *Help) ProtoReflect() protoreflect.Message {
-	mi := &file_google_rpc_error_details_proto_msgTypes[7]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
+	_ = "STUB: not implemented"
+	return *new(protoreflect.Message)
 }
 
 // Deprecated: Use Help.ProtoReflect.Descriptor instead.
-func (*Help) Descriptor() ([]byte, []int) {
-	return file_google_rpc_error_details_proto_rawDescGZIP(), []int{7}
-}
+func (*Help) Descriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
 
-func (x *Help) GetLinks() []*Help_Link {
-	if x != nil {
-		return x.Links
-	}
-	return nil
-}
+func (x *Help) GetLinks() []*Help_Link { _ = "STUB: not implemented"; return nil }
 
 // Provides a localized error message that is safe to return to the user
 // which can be attached to an RPC error.
@@ -529,51 +332,23 @@ type LocalizedMessage struct {
 	Message string `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
 }
 
-func (x *LocalizedMessage) Reset() {
-	*x = LocalizedMessage{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_google_rpc_error_details_proto_msgTypes[8]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
+func (x *LocalizedMessage) Reset() { _ = "STUB: not implemented"; return }
 
-func (x *LocalizedMessage) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
+func (x *LocalizedMessage) String() string { _ = "STUB: not implemented"; return "" }
 
-func (*LocalizedMessage) ProtoMessage() {}
+func (*LocalizedMessage) ProtoMessage() { _ = "STUB: not implemented"; return }
 
 func (x *LocalizedMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_google_rpc_error_details_proto_msgTypes[8]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
+	_ = "STUB: not implemented"
+	return *new(protoreflect.Message)
 }
 
 // Deprecated: Use LocalizedMessage.ProtoReflect.Descriptor instead.
-func (*LocalizedMessage) Descriptor() ([]byte, []int) {
-	return file_google_rpc_error_details_proto_rawDescGZIP(), []int{8}
-}
+func (*LocalizedMessage) Descriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
 
-func (x *LocalizedMessage) GetLocale() string {
-	if x != nil {
-		return x.Locale
-	}
-	return ""
-}
+func (x *LocalizedMessage) GetLocale() string { _ = "STUB: not implemented"; return "" }
 
-func (x *LocalizedMessage) GetMessage() string {
-	if x != nil {
-		return x.Message
-	}
-	return ""
-}
+func (x *LocalizedMessage) GetMessage() string { _ = "STUB: not implemented"; return "" }
 
 // A message type used to describe a single quota violation.  For example, a
 // daily quota or a custom quota that was exceeded.
@@ -596,51 +371,26 @@ type QuotaFailure_Violation struct {
 	Description string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
 }
 
-func (x *QuotaFailure_Violation) Reset() {
-	*x = QuotaFailure_Violation{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_google_rpc_error_details_proto_msgTypes[9]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
+func (x *QuotaFailure_Violation) Reset() { _ = "STUB: not implemented"; return }
 
-func (x *QuotaFailure_Violation) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
+func (x *QuotaFailure_Violation) String() string { _ = "STUB: not implemented"; return "" }
 
-func (*QuotaFailure_Violation) ProtoMessage() {}
+func (*QuotaFailure_Violation) ProtoMessage() { _ = "STUB: not implemented"; return }
 
 func (x *QuotaFailure_Violation) ProtoReflect() protoreflect.Message {
-	mi := &file_google_rpc_error_details_proto_msgTypes[9]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
+	_ = "STUB: not implemented"
+	return *new(protoreflect.Message)
 }
 
 // Deprecated: Use QuotaFailure_Violation.ProtoReflect.Descriptor instead.
 func (*QuotaFailure_Violation) Descriptor() ([]byte, []int) {
-	return file_google_rpc_error_details_proto_rawDescGZIP(), []int{2, 0}
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
-func (x *QuotaFailure_Violation) GetSubject() string {
-	if x != nil {
-		return x.Subject
-	}
-	return ""
-}
+func (x *QuotaFailure_Violation) GetSubject() string { _ = "STUB: not implemented"; return "" }
 
-func (x *QuotaFailure_Violation) GetDescription() string {
-	if x != nil {
-		return x.Description
-	}
-	return ""
-}
+func (x *QuotaFailure_Violation) GetDescription() string { _ = "STUB: not implemented"; return "" }
 
 // A message type used to describe a single precondition failure.
 type PreconditionFailure_Violation struct {
@@ -663,56 +413,29 @@ type PreconditionFailure_Violation struct {
 	Description string `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
 }
 
-func (x *PreconditionFailure_Violation) Reset() {
-	*x = PreconditionFailure_Violation{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_google_rpc_error_details_proto_msgTypes[10]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
+func (x *PreconditionFailure_Violation) Reset() { _ = "STUB: not implemented"; return }
 
-func (x *PreconditionFailure_Violation) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
+func (x *PreconditionFailure_Violation) String() string { _ = "STUB: not implemented"; return "" }
 
-func (*PreconditionFailure_Violation) ProtoMessage() {}
+func (*PreconditionFailure_Violation) ProtoMessage() { _ = "STUB: not implemented"; return }
 
 func (x *PreconditionFailure_Violation) ProtoReflect() protoreflect.Message {
-	mi := &file_google_rpc_error_details_proto_msgTypes[10]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
+	_ = "STUB: not implemented"
+	return *new(protoreflect.Message)
 }
 
 // Deprecated: Use PreconditionFailure_Violation.ProtoReflect.Descriptor instead.
 func (*PreconditionFailure_Violation) Descriptor() ([]byte, []int) {
-	return file_google_rpc_error_details_proto_rawDescGZIP(), []int{3, 0}
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
-func (x *PreconditionFailure_Violation) GetType() string {
-	if x != nil {
-		return x.Type
-	}
-	return ""
-}
+func (x *PreconditionFailure_Violation) GetType() string { _ = "STUB: not implemented"; return "" }
 
-func (x *PreconditionFailure_Violation) GetSubject() string {
-	if x != nil {
-		return x.Subject
-	}
-	return ""
-}
+func (x *PreconditionFailure_Violation) GetSubject() string { _ = "STUB: not implemented"; return "" }
 
 func (x *PreconditionFailure_Violation) GetDescription() string {
-	if x != nil {
-		return x.Description
-	}
+	_ = "STUB: not implemented"
 	return ""
 }
 
@@ -730,51 +453,26 @@ type BadRequest_FieldViolation struct {
 	Description string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
 }
 
-func (x *BadRequest_FieldViolation) Reset() {
-	*x = BadRequest_FieldViolation{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_google_rpc_error_details_proto_msgTypes[11]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
+func (x *BadRequest_FieldViolation) Reset() { _ = "STUB: not implemented"; return }
 
-func (x *BadRequest_FieldViolation) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
+func (x *BadRequest_FieldViolation) String() string { _ = "STUB: not implemented"; return "" }
 
-func (*BadRequest_FieldViolation) ProtoMessage() {}
+func (*BadRequest_FieldViolation) ProtoMessage() { _ = "STUB: not implemented"; return }
 
 func (x *BadRequest_FieldViolation) ProtoReflect() protoreflect.Message {
-	mi := &file_google_rpc_error_details_proto_msgTypes[11]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
+	_ = "STUB: not implemented"
+	return *new(protoreflect.Message)
 }
 
 // Deprecated: Use BadRequest_FieldViolation.ProtoReflect.Descriptor instead.
 func (*BadRequest_FieldViolation) Descriptor() ([]byte, []int) {
-	return file_google_rpc_error_details_proto_rawDescGZIP(), []int{4, 0}
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
-func (x *BadRequest_FieldViolation) GetField() string {
-	if x != nil {
-		return x.Field
-	}
-	return ""
-}
+func (x *BadRequest_FieldViolation) GetField() string { _ = "STUB: not implemented"; return "" }
 
-func (x *BadRequest_FieldViolation) GetDescription() string {
-	if x != nil {
-		return x.Description
-	}
-	return ""
-}
+func (x *BadRequest_FieldViolation) GetDescription() string { _ = "STUB: not implemented"; return "" }
 
 // Describes a URL link.
 type Help_Link struct {
@@ -788,51 +486,23 @@ type Help_Link struct {
 	Url string `protobuf:"bytes,2,opt,name=url,proto3" json:"url,omitempty"`
 }
 
-func (x *Help_Link) Reset() {
-	*x = Help_Link{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_google_rpc_error_details_proto_msgTypes[12]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
+func (x *Help_Link) Reset() { _ = "STUB: not implemented"; return }
 
-func (x *Help_Link) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
+func (x *Help_Link) String() string { _ = "STUB: not implemented"; return "" }
 
-func (*Help_Link) ProtoMessage() {}
+func (*Help_Link) ProtoMessage() { _ = "STUB: not implemented"; return }
 
 func (x *Help_Link) ProtoReflect() protoreflect.Message {
-	mi := &file_google_rpc_error_details_proto_msgTypes[12]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
+	_ = "STUB: not implemented"
+	return *new(protoreflect.Message)
 }
 
 // Deprecated: Use Help_Link.ProtoReflect.Descriptor instead.
-func (*Help_Link) Descriptor() ([]byte, []int) {
-	return file_google_rpc_error_details_proto_rawDescGZIP(), []int{7, 0}
-}
+func (*Help_Link) Descriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
 
-func (x *Help_Link) GetDescription() string {
-	if x != nil {
-		return x.Description
-	}
-	return ""
-}
+func (x *Help_Link) GetDescription() string { _ = "STUB: not implemented"; return "" }
 
-func (x *Help_Link) GetUrl() string {
-	if x != nil {
-		return x.Url
-	}
-	return ""
-}
+func (x *Help_Link) GetUrl() string { _ = "STUB: not implemented"; return "" }
 
 var File_google_rpc_error_details_proto protoreflect.FileDescriptor
 
@@ -925,10 +595,8 @@ var (
 )
 
 func file_google_rpc_error_details_proto_rawDescGZIP() []byte {
-	file_google_rpc_error_details_proto_rawDescOnce.Do(func() {
-		file_google_rpc_error_details_proto_rawDescData = protoimpl.X.CompressGZIP(file_google_rpc_error_details_proto_rawDescData)
-	})
-	return file_google_rpc_error_details_proto_rawDescData
+	_ = "STUB: not implemented"
+	return nil
 }
 
 var file_google_rpc_error_details_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
@@ -961,185 +629,5 @@ var file_google_rpc_error_details_proto_depIdxs = []int32{
 	0,  // [0:5] is the sub-list for field type_name
 }
 
-func init() { file_google_rpc_error_details_proto_init() }
-func file_google_rpc_error_details_proto_init() {
-	if File_google_rpc_error_details_proto != nil {
-		return
-	}
-	if !protoimpl.UnsafeEnabled {
-		file_google_rpc_error_details_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*RetryInfo); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_google_rpc_error_details_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DebugInfo); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_google_rpc_error_details_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*QuotaFailure); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_google_rpc_error_details_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*PreconditionFailure); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_google_rpc_error_details_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BadRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_google_rpc_error_details_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*RequestInfo); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_google_rpc_error_details_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ResourceInfo); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_google_rpc_error_details_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Help); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_google_rpc_error_details_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*LocalizedMessage); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_google_rpc_error_details_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*QuotaFailure_Violation); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_google_rpc_error_details_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*PreconditionFailure_Violation); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_google_rpc_error_details_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BadRequest_FieldViolation); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_google_rpc_error_details_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Help_Link); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-	}
-	type x struct{}
-	out := protoimpl.TypeBuilder{
-		File: protoimpl.DescBuilder{
-			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_google_rpc_error_details_proto_rawDesc,
-			NumEnums:      0,
-			NumMessages:   13,
-			NumExtensions: 0,
-			NumServices:   0,
-		},
-		GoTypes:           file_google_rpc_error_details_proto_goTypes,
-		DependencyIndexes: file_google_rpc_error_details_proto_depIdxs,
-		MessageInfos:      file_google_rpc_error_details_proto_msgTypes,
-	}.Build()
-	File_google_rpc_error_details_proto = out.File
-	file_google_rpc_error_details_proto_rawDesc = nil
-	file_google_rpc_error_details_proto_goTypes = nil
-	file_google_rpc_error_details_proto_depIdxs = nil
-}
+func init()                                     { file_google_rpc_error_details_proto_init() }
+func file_google_rpc_error_details_proto_init() { _ = "STUB: not implemented"; return }

@@ -7,11 +7,9 @@ package main
 
 import (
 	"context"
-	"fmt"
+
 	"github.com/gofiber/fiber/v2"
-	"github.com/rookie-ninja/rk-boot/v2"
-	"github.com/rookie-ninja/rk-fiber/boot"
-	"net/http"
+	rkboot "github.com/rookie-ninja/rk-boot/v2"
 )
 
 // @title Swagger Example API
@@ -52,12 +50,7 @@ func main() {
 // @produce application/json
 // @Success 200 {object} GreeterResponse
 // @Router /v1/greeter [get]
-func Greeter(ctx *fiber.Ctx) error {
-	ctx.Response().SetStatusCode(http.StatusOK)
-	return ctx.JSON(&GreeterResponse{
-		Message: fmt.Sprintf("Hello %s!", ctx.Query("name")),
-	})
-}
+func Greeter(ctx *fiber.Ctx) error { _ = "STUB: not implemented"; return nil }
 
 type GreeterResponse struct {
 	Message string

@@ -6,14 +6,11 @@ package main
 
 import (
 	"context"
-	"github.com/gin-gonic/gin"
-	"github.com/rookie-ninja/rk-boot/v2"
-	"github.com/rookie-ninja/rk-db/sqlserver"
-	"github.com/rookie-ninja/rk-gin/v2/boot"
-	"gorm.io/gorm"
-	"net/http"
-	"strconv"
 	"time"
+
+	"github.com/gin-gonic/gin"
+	rkboot "github.com/rookie-ninja/rk-boot/v2"
+	"gorm.io/gorm"
 )
 
 var userDb *gorm.DB
@@ -57,82 +54,14 @@ type User struct {
 	Name string `yaml:"name" json:"name"`
 }
 
-func ListUsers(ctx *gin.Context) {
-	userList := make([]*User, 0)
-	res := userDb.Find(&userList)
+func ListUsers(ctx *gin.Context) { _ = "STUB: not implemented"; return }
 
-	if res.Error != nil {
-		ctx.JSON(http.StatusInternalServerError, res.Error)
-		return
-	}
-	ctx.JSON(http.StatusOK, userList)
-}
+func GetUser(ctx *gin.Context) { _ = "STUB: not implemented"; return }
 
-func GetUser(ctx *gin.Context) {
-	uid := ctx.Param("id")
-	user := &User{}
-	res := userDb.Where("id = ?", uid).Find(user)
+func CreateUser(ctx *gin.Context) { _ = "STUB: not implemented"; return }
 
-	if res.Error != nil {
-		ctx.JSON(http.StatusInternalServerError, res.Error)
-		return
-	}
-	ctx.JSON(http.StatusOK, user)
-}
+func UpdateUser(ctx *gin.Context) { _ = "STUB: not implemented"; return }
 
-func CreateUser(ctx *gin.Context) {
-	user := &User{
-		Name: ctx.Query("name"),
-	}
+// get user
 
-	res := userDb.Create(user)
-
-	if res.Error != nil {
-		ctx.JSON(http.StatusInternalServerError, res.Error)
-		return
-	}
-	ctx.JSON(http.StatusOK, user)
-}
-
-func UpdateUser(ctx *gin.Context) {
-	uid := ctx.Param("id")
-	user := &User{
-		Name: ctx.Query("name"),
-	}
-
-	res := userDb.Where("id = ?", uid).Updates(user)
-
-	if res.Error != nil {
-		ctx.JSON(http.StatusInternalServerError, res.Error)
-		return
-	}
-
-	if res.RowsAffected < 1 {
-		ctx.JSON(http.StatusNotFound, "user not found")
-		return
-	}
-
-	// get user
-	userDb.Where("id = ?", uid).Find(user)
-
-	ctx.JSON(http.StatusOK, user)
-}
-
-func DeleteUser(ctx *gin.Context) {
-	uid, _ := strconv.Atoi(ctx.Param("id"))
-	res := userDb.Delete(&User{
-		Id: uid,
-	})
-
-	if res.Error != nil {
-		ctx.JSON(http.StatusInternalServerError, res.Error)
-		return
-	}
-
-	if res.RowsAffected < 1 {
-		ctx.JSON(http.StatusNotFound, "user not found")
-		return
-	}
-
-	ctx.String(http.StatusOK, "success")
-}
+func DeleteUser(ctx *gin.Context) { _ = "STUB: not implemented"; return }

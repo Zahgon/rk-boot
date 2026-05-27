@@ -7,10 +7,10 @@
 package greeter
 
 import (
+	sync "sync"
+
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	reflect "reflect"
-	sync "sync"
 )
 
 const (
@@ -26,37 +26,19 @@ type HelloRequest struct {
 	unknownFields protoimpl.UnknownFields
 }
 
-func (x *HelloRequest) Reset() {
-	*x = HelloRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_v1_greeter_proto_msgTypes[0]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
+func (x *HelloRequest) Reset() { _ = "STUB: not implemented"; return }
 
-func (x *HelloRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
+func (x *HelloRequest) String() string { _ = "STUB: not implemented"; return "" }
 
-func (*HelloRequest) ProtoMessage() {}
+func (*HelloRequest) ProtoMessage() { _ = "STUB: not implemented"; return }
 
 func (x *HelloRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_v1_greeter_proto_msgTypes[0]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
+	_ = "STUB: not implemented"
+	return *new(protoreflect.Message)
 }
 
 // Deprecated: Use HelloRequest.ProtoReflect.Descriptor instead.
-func (*HelloRequest) Descriptor() ([]byte, []int) {
-	return file_v1_greeter_proto_rawDescGZIP(), []int{0}
-}
+func (*HelloRequest) Descriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
 
 type HelloResponse struct {
 	state         protoimpl.MessageState
@@ -66,44 +48,21 @@ type HelloResponse struct {
 	Message string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
 }
 
-func (x *HelloResponse) Reset() {
-	*x = HelloResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_v1_greeter_proto_msgTypes[1]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
+func (x *HelloResponse) Reset() { _ = "STUB: not implemented"; return }
 
-func (x *HelloResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
+func (x *HelloResponse) String() string { _ = "STUB: not implemented"; return "" }
 
-func (*HelloResponse) ProtoMessage() {}
+func (*HelloResponse) ProtoMessage() { _ = "STUB: not implemented"; return }
 
 func (x *HelloResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_v1_greeter_proto_msgTypes[1]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
+	_ = "STUB: not implemented"
+	return *new(protoreflect.Message)
 }
 
 // Deprecated: Use HelloResponse.ProtoReflect.Descriptor instead.
-func (*HelloResponse) Descriptor() ([]byte, []int) {
-	return file_v1_greeter_proto_rawDescGZIP(), []int{1}
-}
+func (*HelloResponse) Descriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
 
-func (x *HelloResponse) GetMessage() string {
-	if x != nil {
-		return x.Message
-	}
-	return ""
-}
+func (x *HelloResponse) GetMessage() string { _ = "STUB: not implemented"; return "" }
 
 var File_v1_greeter_proto protoreflect.FileDescriptor
 
@@ -127,12 +86,7 @@ var (
 	file_v1_greeter_proto_rawDescData = file_v1_greeter_proto_rawDesc
 )
 
-func file_v1_greeter_proto_rawDescGZIP() []byte {
-	file_v1_greeter_proto_rawDescOnce.Do(func() {
-		file_v1_greeter_proto_rawDescData = protoimpl.X.CompressGZIP(file_v1_greeter_proto_rawDescData)
-	})
-	return file_v1_greeter_proto_rawDescData
-}
+func file_v1_greeter_proto_rawDescGZIP() []byte { _ = "STUB: not implemented"; return nil }
 
 var file_v1_greeter_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_v1_greeter_proto_goTypes = []interface{}{
@@ -149,53 +103,5 @@ var file_v1_greeter_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_v1_greeter_proto_init() }
-func file_v1_greeter_proto_init() {
-	if File_v1_greeter_proto != nil {
-		return
-	}
-	if !protoimpl.UnsafeEnabled {
-		file_v1_greeter_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*HelloRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_v1_greeter_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*HelloResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-	}
-	type x struct{}
-	out := protoimpl.TypeBuilder{
-		File: protoimpl.DescBuilder{
-			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_v1_greeter_proto_rawDesc,
-			NumEnums:      0,
-			NumMessages:   2,
-			NumExtensions: 0,
-			NumServices:   1,
-		},
-		GoTypes:           file_v1_greeter_proto_goTypes,
-		DependencyIndexes: file_v1_greeter_proto_depIdxs,
-		MessageInfos:      file_v1_greeter_proto_msgTypes,
-	}.Build()
-	File_v1_greeter_proto = out.File
-	file_v1_greeter_proto_rawDesc = nil
-	file_v1_greeter_proto_goTypes = nil
-	file_v1_greeter_proto_depIdxs = nil
-}
+func init()                       { file_v1_greeter_proto_init() }
+func file_v1_greeter_proto_init() { _ = "STUB: not implemented"; return }

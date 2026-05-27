@@ -6,14 +6,11 @@ package main
 
 import (
 	"context"
-	"github.com/gin-gonic/gin"
-	"github.com/rookie-ninja/rk-boot/v2"
-	"github.com/rookie-ninja/rk-db/clickhouse"
-	"github.com/rookie-ninja/rk-gin/v2/boot"
-	"github.com/rs/xid"
-	"gorm.io/gorm"
-	"net/http"
 	"time"
+
+	"github.com/gin-gonic/gin"
+	rkboot "github.com/rookie-ninja/rk-boot/v2"
+	"gorm.io/gorm"
 )
 
 var userDb *gorm.DB
@@ -56,70 +53,12 @@ type User struct {
 	Name string `yaml:"name" json:"name"`
 }
 
-func ListUsers(ctx *gin.Context) {
-	userList := make([]*User, 0)
-	res := userDb.Find(&userList)
+func ListUsers(ctx *gin.Context) { _ = "STUB: not implemented"; return }
 
-	if res.Error != nil {
-		ctx.JSON(http.StatusInternalServerError, res.Error)
-		return
-	}
-	ctx.JSON(http.StatusOK, userList)
-}
+func GetUser(ctx *gin.Context) { _ = "STUB: not implemented"; return }
 
-func GetUser(ctx *gin.Context) {
-	uid := ctx.Param("id")
-	user := &User{}
-	res := userDb.Find(user, "id = ?", uid)
+func CreateUser(ctx *gin.Context) { _ = "STUB: not implemented"; return }
 
-	if res.Error != nil {
-		ctx.JSON(http.StatusInternalServerError, res.Error)
-		return
-	}
-	ctx.JSON(http.StatusOK, user)
-}
+func UpdateUser(ctx *gin.Context) { _ = "STUB: not implemented"; return }
 
-func CreateUser(ctx *gin.Context) {
-	user := &User{
-		Id:   xid.New().String(),
-		Name: ctx.Query("name"),
-	}
-
-	res := userDb.Create(user)
-
-	if res.Error != nil {
-		ctx.JSON(http.StatusInternalServerError, res.Error)
-		return
-	}
-	ctx.JSON(http.StatusOK, user)
-}
-
-func UpdateUser(ctx *gin.Context) {
-	uid := ctx.Param("id")
-	user := &User{
-		Id:   uid,
-		Name: ctx.Query("name"),
-	}
-
-	res := userDb.Where("id = ?", uid).Updates(user)
-
-	if res.Error != nil {
-		ctx.JSON(http.StatusInternalServerError, res.Error)
-		return
-	}
-
-	ctx.JSON(http.StatusOK, user)
-}
-
-func DeleteUser(ctx *gin.Context) {
-	uid := ctx.Param("id")
-
-	res := userDb.Delete(&User{}, "id = ?", uid)
-
-	if res.Error != nil {
-		ctx.JSON(http.StatusInternalServerError, res.Error)
-		return
-	}
-
-	ctx.String(http.StatusOK, "success")
-}
+func DeleteUser(ctx *gin.Context) { _ = "STUB: not implemented"; return }

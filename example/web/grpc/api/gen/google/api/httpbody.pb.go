@@ -22,11 +22,11 @@
 package httpbody
 
 import (
+	sync "sync"
+
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	anypb "google.golang.org/protobuf/types/known/anypb"
-	reflect "reflect"
-	sync "sync"
 )
 
 const (
@@ -40,7 +40,6 @@ const (
 // payload formats that can't be represented as JSON, such as raw binary or
 // an HTML page.
 //
-//
 // This message can be used both in streaming and non-streaming API methods in
 // the request as well as the response.
 //
@@ -50,28 +49,28 @@ const (
 //
 // Example:
 //
-//     message GetResourceRequest {
-//       // A unique request id.
-//       string request_id = 1;
+//	message GetResourceRequest {
+//	  // A unique request id.
+//	  string request_id = 1;
 //
-//       // The raw HTTP body is bound to this field.
-//       google.api.HttpBody http_body = 2;
-//     }
+//	  // The raw HTTP body is bound to this field.
+//	  google.api.HttpBody http_body = 2;
+//	}
 //
-//     service ResourceService {
-//       rpc GetResource(GetResourceRequest) returns (google.api.HttpBody);
-//       rpc UpdateResource(google.api.HttpBody) returns
-//       (google.protobuf.Empty);
-//     }
+//	service ResourceService {
+//	  rpc GetResource(GetResourceRequest) returns (google.api.HttpBody);
+//	  rpc UpdateResource(google.api.HttpBody) returns
+//	  (google.protobuf.Empty);
+//	}
 //
 // Example with streaming methods:
 //
-//     service CaldavService {
-//       rpc GetCalendar(stream google.api.HttpBody)
-//         returns (stream google.api.HttpBody);
-//       rpc UpdateCalendar(stream google.api.HttpBody)
-//         returns (stream google.api.HttpBody);
-//     }
+//	service CaldavService {
+//	  rpc GetCalendar(stream google.api.HttpBody)
+//	    returns (stream google.api.HttpBody);
+//	  rpc UpdateCalendar(stream google.api.HttpBody)
+//	    returns (stream google.api.HttpBody);
+//	}
 //
 // Use of this type only changes how the request and response bodies are
 // handled, all other features will continue to work unchanged.
@@ -89,58 +88,25 @@ type HttpBody struct {
 	Extensions []*anypb.Any `protobuf:"bytes,3,rep,name=extensions,proto3" json:"extensions,omitempty"`
 }
 
-func (x *HttpBody) Reset() {
-	*x = HttpBody{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_google_api_httpbody_proto_msgTypes[0]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
+func (x *HttpBody) Reset() { _ = "STUB: not implemented"; return }
 
-func (x *HttpBody) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
+func (x *HttpBody) String() string { _ = "STUB: not implemented"; return "" }
 
-func (*HttpBody) ProtoMessage() {}
+func (*HttpBody) ProtoMessage() { _ = "STUB: not implemented"; return }
 
 func (x *HttpBody) ProtoReflect() protoreflect.Message {
-	mi := &file_google_api_httpbody_proto_msgTypes[0]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
+	_ = "STUB: not implemented"
+	return *new(protoreflect.Message)
 }
 
 // Deprecated: Use HttpBody.ProtoReflect.Descriptor instead.
-func (*HttpBody) Descriptor() ([]byte, []int) {
-	return file_google_api_httpbody_proto_rawDescGZIP(), []int{0}
-}
+func (*HttpBody) Descriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
 
-func (x *HttpBody) GetContentType() string {
-	if x != nil {
-		return x.ContentType
-	}
-	return ""
-}
+func (x *HttpBody) GetContentType() string { _ = "STUB: not implemented"; return "" }
 
-func (x *HttpBody) GetData() []byte {
-	if x != nil {
-		return x.Data
-	}
-	return nil
-}
+func (x *HttpBody) GetData() []byte { _ = "STUB: not implemented"; return nil }
 
-func (x *HttpBody) GetExtensions() []*anypb.Any {
-	if x != nil {
-		return x.Extensions
-	}
-	return nil
-}
+func (x *HttpBody) GetExtensions() []*anypb.Any { _ = "STUB: not implemented"; return nil }
 
 var File_google_api_httpbody_proto protoreflect.FileDescriptor
 
@@ -171,12 +137,7 @@ var (
 	file_google_api_httpbody_proto_rawDescData = file_google_api_httpbody_proto_rawDesc
 )
 
-func file_google_api_httpbody_proto_rawDescGZIP() []byte {
-	file_google_api_httpbody_proto_rawDescOnce.Do(func() {
-		file_google_api_httpbody_proto_rawDescData = protoimpl.X.CompressGZIP(file_google_api_httpbody_proto_rawDescData)
-	})
-	return file_google_api_httpbody_proto_rawDescData
-}
+func file_google_api_httpbody_proto_rawDescGZIP() []byte { _ = "STUB: not implemented"; return nil }
 
 var file_google_api_httpbody_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_api_httpbody_proto_goTypes = []interface{}{
@@ -192,41 +153,5 @@ var file_google_api_httpbody_proto_depIdxs = []int32{
 	0, // [0:1] is the sub-list for field type_name
 }
 
-func init() { file_google_api_httpbody_proto_init() }
-func file_google_api_httpbody_proto_init() {
-	if File_google_api_httpbody_proto != nil {
-		return
-	}
-	if !protoimpl.UnsafeEnabled {
-		file_google_api_httpbody_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*HttpBody); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-	}
-	type x struct{}
-	out := protoimpl.TypeBuilder{
-		File: protoimpl.DescBuilder{
-			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_google_api_httpbody_proto_rawDesc,
-			NumEnums:      0,
-			NumMessages:   1,
-			NumExtensions: 0,
-			NumServices:   0,
-		},
-		GoTypes:           file_google_api_httpbody_proto_goTypes,
-		DependencyIndexes: file_google_api_httpbody_proto_depIdxs,
-		MessageInfos:      file_google_api_httpbody_proto_msgTypes,
-	}.Build()
-	File_google_api_httpbody_proto = out.File
-	file_google_api_httpbody_proto_rawDesc = nil
-	file_google_api_httpbody_proto_goTypes = nil
-	file_google_api_httpbody_proto_depIdxs = nil
-}
+func init()                                { file_google_api_httpbody_proto_init() }
+func file_google_api_httpbody_proto_init() { _ = "STUB: not implemented"; return }

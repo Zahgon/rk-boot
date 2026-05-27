@@ -6,13 +6,11 @@ package main
 
 import (
 	"context"
+
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis/v8"
-	"github.com/rookie-ninja/rk-boot/v2"
+	rkboot "github.com/rookie-ninja/rk-boot/v2"
 	"github.com/rookie-ninja/rk-db/redis"
-	"github.com/rookie-ninja/rk-gin/v2/boot"
-	"net/http"
-	"time"
 )
 
 var redisClient *redis.Client
@@ -39,38 +37,6 @@ type KV struct {
 	Value string `json:"value"`
 }
 
-func Set(ctx *gin.Context) {
-	payload := &KV{}
+func Set(ctx *gin.Context) { _ = "STUB: not implemented"; return }
 
-	if err := ctx.BindJSON(payload); err != nil {
-		ctx.JSON(http.StatusInternalServerError, err)
-		return
-	}
-
-	cmd := redisClient.Set(ctx.Request.Context(), payload.Key, payload.Value, time.Minute)
-
-	if cmd.Err() != nil {
-		ctx.JSON(http.StatusInternalServerError, cmd.Err())
-		return
-	}
-
-	ctx.Status(http.StatusOK)
-}
-
-func Get(ctx *gin.Context) {
-	key := ctx.Query("key")
-
-	cmd := redisClient.Get(ctx.Request.Context(), key)
-
-	if cmd.Err() != nil {
-		ctx.JSON(http.StatusInternalServerError, cmd.Err())
-		return
-	}
-
-	payload := &KV{
-		Key:   key,
-		Value: cmd.Val(),
-	}
-
-	ctx.JSON(http.StatusOK, payload)
-}
+func Get(ctx *gin.Context) { _ = "STUB: not implemented"; return }

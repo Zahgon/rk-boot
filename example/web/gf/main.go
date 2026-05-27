@@ -7,11 +7,9 @@ package main
 
 import (
 	"context"
-	"fmt"
+
 	"github.com/gogf/gf/v2/net/ghttp"
-	"github.com/rookie-ninja/rk-boot/v2"
-	"github.com/rookie-ninja/rk-gf/boot"
-	"net/http"
+	rkboot "github.com/rookie-ninja/rk-boot/v2"
 )
 
 // @title Swagger Example API
@@ -49,12 +47,7 @@ func main() {
 // @Param name query string true "Input name"
 // @Success 200 {object} GreeterResponse
 // @Router /v1/greeter [get]
-func Greeter(ctx *ghttp.Request) {
-	ctx.Response.WriteHeader(http.StatusOK)
-	ctx.Response.WriteJson(&GreeterResponse{
-		Message: fmt.Sprintf("Hello %s!", ctx.GetQuery("name").String()),
-	})
-}
+func Greeter(ctx *ghttp.Request) { _ = "STUB: not implemented"; return }
 
 type GreeterResponse struct {
 	Message string

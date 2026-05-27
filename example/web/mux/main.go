@@ -7,11 +7,9 @@ package main
 import (
 	"context"
 	_ "embed"
-	"fmt"
-	"github.com/rookie-ninja/rk-boot/v2"
-	"github.com/rookie-ninja/rk-mux/boot"
-	"github.com/rookie-ninja/rk-mux/middleware"
 	"net/http"
+
+	rkboot "github.com/rookie-ninja/rk-boot/v2"
 )
 
 // @title RK Swagger for Mux
@@ -40,11 +38,7 @@ func main() {
 // @Param name query string true "Input name"
 // @Success 200 {object} GreeterResponse
 // @Router /v1/greeter [get]
-func Greeter(writer http.ResponseWriter, req *http.Request) {
-	rkmuxmid.WriteJson(writer, http.StatusOK, &GreeterResponse{
-		Message: fmt.Sprintf("Hello %s!", req.URL.Query().Get("name")),
-	})
-}
+func Greeter(writer http.ResponseWriter, req *http.Request) { _ = "STUB: not implemented"; return }
 
 type GreeterResponse struct {
 	Message string

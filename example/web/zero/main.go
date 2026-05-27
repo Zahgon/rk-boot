@@ -2,12 +2,10 @@ package main
 
 import (
 	"context"
-	"encoding/json"
-	"fmt"
-	"github.com/rookie-ninja/rk-boot/v2"
-	"github.com/rookie-ninja/rk-zero/boot"
-	"github.com/zeromicro/go-zero/rest"
 	"net/http"
+
+	rkboot "github.com/rookie-ninja/rk-boot/v2"
+	"github.com/zeromicro/go-zero/rest"
 )
 
 // @title Swagger Example API
@@ -51,14 +49,7 @@ func main() {
 // @produce application/json
 // @Success 200 {object} GreeterResponse
 // @Router /v1/greeter [get]
-func Greeter(writer http.ResponseWriter, request *http.Request) {
-	writer.WriteHeader(http.StatusOK)
-	resp := &GreeterResponse{
-		Message: fmt.Sprintf("Hello %s!", request.URL.Query().Get("name")),
-	}
-	bytes, _ := json.Marshal(resp)
-	writer.Write(bytes)
-}
+func Greeter(writer http.ResponseWriter, request *http.Request) { _ = "STUB: not implemented"; return }
 
 type GreeterResponse struct {
 	Message string

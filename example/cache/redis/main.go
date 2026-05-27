@@ -2,11 +2,9 @@ package main
 
 import (
 	"context"
+
 	"github.com/gin-gonic/gin"
-	"github.com/rookie-ninja/rk-boot/v2"
-	"github.com/rookie-ninja/rk-cache/redis"
-	"github.com/rookie-ninja/rk-gin/v2/boot"
-	"net/http"
+	rkboot "github.com/rookie-ninja/rk-boot/v2"
 )
 
 var cacheEntry *rkcache.CacheEntry
@@ -27,35 +25,6 @@ func main() {
 	boot.WaitForShutdownSig(context.TODO())
 }
 
-func Get(ctx *gin.Context) {
-	val := ""
-	resp := cacheEntry.GetFromCache(&rkcache.CacheReq{
-		Key:   "demo-key",
-		Value: &val,
-	})
+func Get(ctx *gin.Context) { _ = "STUB: not implemented"; return }
 
-	if resp.Error != nil || !resp.Success {
-		ctx.JSON(http.StatusInternalServerError, resp.Error)
-		return
-	}
-
-	ctx.JSON(http.StatusOK, map[string]string{
-		"value": val,
-	})
-}
-
-func Set(ctx *gin.Context) {
-	val, ok := ctx.GetQuery("value")
-	if !ok {
-		ctx.JSON(http.StatusBadRequest, "No value found")
-	}
-
-	cacheEntry.AddToCache(&rkcache.CacheReq{
-		Key:   "demo-key",
-		Value: val,
-	})
-
-	ctx.JSON(http.StatusOK, map[string]string{
-		"value": val,
-	})
-}
+func Set(ctx *gin.Context) { _ = "STUB: not implemented"; return }

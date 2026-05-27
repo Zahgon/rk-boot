@@ -7,9 +7,8 @@ package main
 
 import (
 	"context"
-	"github.com/rookie-ninja/rk-boot/v2"
-	"github.com/rookie-ninja/rk-demo/api/gen/v1"
-	"github.com/rookie-ninja/rk-grpc/v2/boot"
+
+	rkboot "github.com/rookie-ninja/rk-boot/v2"
 	"google.golang.org/grpc"
 )
 
@@ -28,16 +27,13 @@ func main() {
 	boot.WaitForShutdownSig(context.TODO())
 }
 
-func registerGreeter(server *grpc.Server) {
-	greeter.RegisterGreeterServer(server, &GreeterServer{})
-}
+func registerGreeter(server *grpc.Server) { _ = "STUB: not implemented"; return }
 
-//GreeterServer GreeterServer struct
+// GreeterServer GreeterServer struct
 type GreeterServer struct{}
 
 // Hello response with hello message
 func (server *GreeterServer) Hello(_ context.Context, _ *greeter.HelloRequest) (*greeter.HelloResponse, error) {
-	return &greeter.HelloResponse{
-		Message: "hello!",
-	}, nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }

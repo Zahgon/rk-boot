@@ -21,11 +21,11 @@
 package status
 
 import (
+	sync "sync"
+
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	anypb "google.golang.org/protobuf/types/known/anypb"
-	reflect "reflect"
-	sync "sync"
 )
 
 const (
@@ -70,22 +70,22 @@ const (
 //
 // Example uses of this error model include:
 //
-// - Partial errors. If a service needs to return partial errors to the client,
+//   - Partial errors. If a service needs to return partial errors to the client,
 //     it may embed the `Status` in the normal response to indicate the partial
 //     errors.
 //
-// - Workflow errors. A typical workflow has multiple steps. Each step may
+//   - Workflow errors. A typical workflow has multiple steps. Each step may
 //     have a `Status` message for error reporting.
 //
-// - Batch operations. If a client uses batch request and batch response, the
+//   - Batch operations. If a client uses batch request and batch response, the
 //     `Status` message should be used directly inside batch response, one for
 //     each error sub-response.
 //
-// - Asynchronous operations. If an API call embeds asynchronous operation
+//   - Asynchronous operations. If an API call embeds asynchronous operation
 //     results in its response, the status of those operations should be
 //     represented directly using the `Status` message.
 //
-// - Logging. If some API errors are stored in logs, the message `Status` could
+//   - Logging. If some API errors are stored in logs, the message `Status` could
 //     be used directly after any stripping needed for security/privacy reasons.
 type Status struct {
 	state         protoimpl.MessageState
@@ -103,58 +103,25 @@ type Status struct {
 	Details []*anypb.Any `protobuf:"bytes,3,rep,name=details,proto3" json:"details,omitempty"`
 }
 
-func (x *Status) Reset() {
-	*x = Status{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_google_rpc_status_proto_msgTypes[0]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
+func (x *Status) Reset() { _ = "STUB: not implemented"; return }
 
-func (x *Status) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
+func (x *Status) String() string { _ = "STUB: not implemented"; return "" }
 
-func (*Status) ProtoMessage() {}
+func (*Status) ProtoMessage() { _ = "STUB: not implemented"; return }
 
 func (x *Status) ProtoReflect() protoreflect.Message {
-	mi := &file_google_rpc_status_proto_msgTypes[0]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
+	_ = "STUB: not implemented"
+	return *new(protoreflect.Message)
 }
 
 // Deprecated: Use Status.ProtoReflect.Descriptor instead.
-func (*Status) Descriptor() ([]byte, []int) {
-	return file_google_rpc_status_proto_rawDescGZIP(), []int{0}
-}
+func (*Status) Descriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
 
-func (x *Status) GetCode() int32 {
-	if x != nil {
-		return x.Code
-	}
-	return 0
-}
+func (x *Status) GetCode() int32 { _ = "STUB: not implemented"; return 0 }
 
-func (x *Status) GetMessage() string {
-	if x != nil {
-		return x.Message
-	}
-	return ""
-}
+func (x *Status) GetMessage() string { _ = "STUB: not implemented"; return "" }
 
-func (x *Status) GetDetails() []*anypb.Any {
-	if x != nil {
-		return x.Details
-	}
-	return nil
-}
+func (x *Status) GetDetails() []*anypb.Any { _ = "STUB: not implemented"; return nil }
 
 var File_google_rpc_status_proto protoreflect.FileDescriptor
 
@@ -183,12 +150,7 @@ var (
 	file_google_rpc_status_proto_rawDescData = file_google_rpc_status_proto_rawDesc
 )
 
-func file_google_rpc_status_proto_rawDescGZIP() []byte {
-	file_google_rpc_status_proto_rawDescOnce.Do(func() {
-		file_google_rpc_status_proto_rawDescData = protoimpl.X.CompressGZIP(file_google_rpc_status_proto_rawDescData)
-	})
-	return file_google_rpc_status_proto_rawDescData
-}
+func file_google_rpc_status_proto_rawDescGZIP() []byte { _ = "STUB: not implemented"; return nil }
 
 var file_google_rpc_status_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_rpc_status_proto_goTypes = []interface{}{
@@ -204,41 +166,5 @@ var file_google_rpc_status_proto_depIdxs = []int32{
 	0, // [0:1] is the sub-list for field type_name
 }
 
-func init() { file_google_rpc_status_proto_init() }
-func file_google_rpc_status_proto_init() {
-	if File_google_rpc_status_proto != nil {
-		return
-	}
-	if !protoimpl.UnsafeEnabled {
-		file_google_rpc_status_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Status); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-	}
-	type x struct{}
-	out := protoimpl.TypeBuilder{
-		File: protoimpl.DescBuilder{
-			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_google_rpc_status_proto_rawDesc,
-			NumEnums:      0,
-			NumMessages:   1,
-			NumExtensions: 0,
-			NumServices:   0,
-		},
-		GoTypes:           file_google_rpc_status_proto_goTypes,
-		DependencyIndexes: file_google_rpc_status_proto_depIdxs,
-		MessageInfos:      file_google_rpc_status_proto_msgTypes,
-	}.Build()
-	File_google_rpc_status_proto = out.File
-	file_google_rpc_status_proto_rawDesc = nil
-	file_google_rpc_status_proto_goTypes = nil
-	file_google_rpc_status_proto_depIdxs = nil
-}
+func init()                              { file_google_rpc_status_proto_init() }
+func file_google_rpc_status_proto_init() { _ = "STUB: not implemented"; return }
